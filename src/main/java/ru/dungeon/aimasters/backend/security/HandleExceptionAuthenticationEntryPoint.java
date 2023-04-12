@@ -1,4 +1,4 @@
-package ru.dungeon.aimasters.backend.config;
+package ru.dungeon.aimasters.backend.security;
 
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;

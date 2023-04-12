@@ -29,6 +29,8 @@ ext {
     mapstruct = '1.5.3.Final'
     junit = '5.8.1'
     validation = '2.0.1.Final'
+    jjwt = '0.11.5'
+    auth0 = '4.2.1'
 }
 
 dependencies {
@@ -38,10 +40,13 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-validation:${springBootStarter}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootStarter}"
     implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server:${springBootStarter}"
+    // token
+    implementation "io.jsonwebtoken:jjwt-impl:${jjwt}"
+    implementation "com.auth0:java-jwt:${auth0}"
+
 
     //  ------------- DB -----------------
     implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootStarter}"
-//  db
     implementation "org.postgresql:postgresql:${postgresql}"
     implementation "org.liquibase:liquibase-core:${liquibase}"
 
