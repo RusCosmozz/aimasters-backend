@@ -1,0 +1,69 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.springframework.boot' version '2.6.4'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+ext {
+    javaVersion = '11'
+}
+
+allprojects {
+
+    group = 'ru.dungeon.aimasters'
+    version = '0.0.1-SNAPSHOT'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+}
+mainClassName = 'ru.dungeon.aimasters.AiMastersApplication'
+
+ext {
+    springBootStarter = '2.7.8'
+    springBootStarterTest = '2.7.8'
+    lombok = '1.18.24'
+    liquibase = '3.8.8'
+    postgresql = '42.5.2'
+    mapstruct = '1.5.3.Final'
+    junit = '5.8.1'
+    validation = '2.0.1.Final'
+}
+
+dependencies {
+    //  ------------- Spring -----------------
+    implementation "org.springframework.boot:spring-boot-starter:${springBootStarter}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${springBootStarter}"
+    implementation "org.springframework.boot:spring-boot-starter-validation:${springBootStarter}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${springBootStarter}"
+    implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server:${springBootStarter}"
+
+    //  ------------- DB -----------------
+    implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootStarter}"
+//  db
+    implementation "org.postgresql:postgresql:${postgresql}"
+    implementation "org.liquibase:liquibase-core:${liquibase}"
+
+    //  ------------- Lombok -----------------
+    compileOnly "org.projectlombok:lombok:${lombok}"
+    annotationProcessor "org.projectlombok:lombok:${lombok}"
+
+    //  ------------- Mapstruct -----------------
+    implementation "org.mapstruct:mapstruct:${mapstruct}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct}"
+
+    //  ------------- Validation -----------------
+    implementation "javax.validation:validation-api:${validation}"
+
+    //  ------------- Tests -----------------
+    testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootStarterTest}"
+    testImplementation "org.projectlombok:lombok:${lombok}"
+    testAnnotationProcessor "org.projectlombok:lombok:${lombok}"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junit}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junit}"
+}
+
+test {
+    useJUnitPlatform()
+}
