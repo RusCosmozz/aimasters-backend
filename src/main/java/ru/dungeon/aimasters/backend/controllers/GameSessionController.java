@@ -34,7 +34,6 @@ import ru.dungeon.aimasters.backend.services.GameSessionService;
 public class GameSessionController {
 
     private final GameSessionService gameSessionService;
-    private final AiService aiService;
 
     @PostMapping("/users/{userId}/game-sessions")
     @ResponseStatus(HttpStatus.CREATED)
@@ -43,12 +42,6 @@ public class GameSessionController {
             @RequestBody GameSessionRequestDto gameSessionRequestDto,
             HttpSession httpSession) {
 
-        log.info("{}",gameSessionRequestDto);
-
-        log.info("Запрос на старт игровой сессии");
-//        AiResponseDto aiResponseDto = aiService.startGameSession(httpSession);
-//        MessageContent messageContent = aiResponseDto.getChoices().get(0).getMessageContent();
-//        log.info("{}", toJson(messageContent));
         return gameSessionService.createGameSession(gameSessionRequestDto, userId, httpSession);
     }
 

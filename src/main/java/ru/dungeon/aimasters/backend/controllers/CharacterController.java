@@ -1,21 +1,15 @@
 package ru.dungeon.aimasters.backend.controllers;
 
-import static ru.dungeon.aimasters.backend.utils.json.JsonUtils.fromJson;
-import static ru.dungeon.aimasters.backend.utils.json.JsonUtils.toJson;
-
-import java.util.List;
-import java.util.UUID;
-import javax.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.dungeon.aimasters.backend.dtos.ai.AiResponseDto;
 import ru.dungeon.aimasters.backend.dtos.character.CharacterRequestDto;
 import ru.dungeon.aimasters.backend.dtos.character.CharacterResponseDto;
-import ru.dungeon.aimasters.backend.dtos.chat.MessageContent;
-import ru.dungeon.aimasters.backend.services.AiService;
 import ru.dungeon.aimasters.backend.services.CharacterService;
+
+import java.util.List;
+import java.util.UUID;
 
 /**
  * @author Ermakov KS
