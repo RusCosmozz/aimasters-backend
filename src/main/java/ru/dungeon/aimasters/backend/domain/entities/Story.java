@@ -20,7 +20,7 @@ public class Story extends BaseUUIDEntity {
 
   @ManyToOne
   @JoinColumn(name = "game_session_id", referencedColumnName = "id")
-  private GameSession gameSession;
+  private Lobby lobby;
 
   @ManyToOne
   @JoinColumn(name = "world_id", referencedColumnName = "id")

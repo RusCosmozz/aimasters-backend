@@ -4,13 +4,13 @@ import java.util.UUID;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.dungeon.aimasters.backend.domain.entities.GameSession;
+import ru.dungeon.aimasters.backend.domain.entities.Lobby;
 import ru.dungeon.aimasters.backend.domain.entities.World;
 import ru.dungeon.aimasters.backend.dtos.world.WorldRequestDto;
 import ru.dungeon.aimasters.backend.dtos.world.WorldResponseDto;
 import ru.dungeon.aimasters.backend.exceptions.exceptions.EntityNotFoundException;
 import ru.dungeon.aimasters.backend.mappers.WorldMapper;
-import ru.dungeon.aimasters.backend.repositories.GameSessionRepository;
+import ru.dungeon.aimasters.backend.repositories.LobbyRepository;
 import ru.dungeon.aimasters.backend.repositories.WorldRepository;
 import ru.dungeon.aimasters.backend.services.WorldService;
 
@@ -24,15 +24,15 @@ import ru.dungeon.aimasters.backend.services.WorldService;
 public class WorldServiceImpl implements WorldService {
 
   private final WorldRepository worldRepository;
-  private final GameSessionRepository gameSessionRepository;
+  private final LobbyRepository lobbyRepository;
   private final WorldMapper worldMapper;
 
   @Override
   @Transactional
   public WorldResponseDto createWorld(WorldRequestDto worldRequestDto, UUID gameId) {
-    GameSession gameSession = getGameIfExists(gameId);
+    Lobby lobby = getGameIfExists(gameId);
     World world = worldMapper.toWorldEntity(worldRequestDto);
-    world.setGameSession(gameSession);
+    world.setLobby(lobby);
     World savedWorld = worldRepository.save(world);
     return worldMapper.toWorldDto(savedWorld);
   }
@@ -46,13 +46,13 @@ public class WorldServiceImpl implements WorldService {
 
   @Override
   public WorldResponseDto findWorldByGameId(UUID id) {
-    World world = worldRepository.findWorldByGameSessionId(id)
+    World world = worldRepository.findWorldByLobbyId(id)
             .orElseThrow(() -> new EntityNotFoundException("World not found with ID: " + id));
     return worldMapper.toWorldDto(world);
   }
 
-  private GameSession getGameIfExists(UUID gameId) {
-    return gameSessionRepository.findById(gameId)
+  private Lobby getGameIfExists(UUID gameId) {
+    return lobbyRepository.findById(gameId)
                                 .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));
   }
 }

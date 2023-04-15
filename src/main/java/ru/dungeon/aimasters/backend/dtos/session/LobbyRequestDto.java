@@ -1,7 +1,5 @@
 package ru.dungeon.aimasters.backend.dtos.session;
 
-import java.time.LocalDateTime;
-import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -15,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GameSessionRequestDto {
+public class LobbyRequestDto {
 
   private String name;
 }

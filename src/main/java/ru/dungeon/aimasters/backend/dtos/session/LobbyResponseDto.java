@@ -1,6 +1,5 @@
 package ru.dungeon.aimasters.backend.dtos.session;
 
-import java.time.LocalDateTime;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -15,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GameSessionResponseDto {
+public class LobbyResponseDto {
 
   private UUID id;
   private UUID hostId;

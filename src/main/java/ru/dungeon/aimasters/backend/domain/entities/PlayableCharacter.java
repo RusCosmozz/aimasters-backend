@@ -27,13 +27,11 @@ public class PlayableCharacter extends BaseUUIDEntity {
   private String name;
 
   @Column(name = "race", nullable = false)
-  //todo енам
   private String race;
   @Column(name = "race_overview", nullable = false)
   private String raceOverview;
 
   @Column(name = "class", nullable = false)
-  //todo енам
   private String className;
   @Column(name = "class_overview", nullable = false)
   private String classOverview;
@@ -45,11 +43,9 @@ public class PlayableCharacter extends BaseUUIDEntity {
   @Column(name = "level", nullable = false)
   private Integer level;
 
-//  @Column(name = "attributes", nullable = false)
-//  //todo наверное атрибуты будут жестко заданы и их хранить в отдельном классе
-//  //todo как хранить спелы?
-//  private String attributes;
-
   @Column(name = "backstory")
   private String backstory;
+
+  //todo backpack
+  //todo атрибуты
 }

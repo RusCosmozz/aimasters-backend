@@ -1,10 +1,7 @@
 package ru.dungeon.aimasters.backend.domain.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -24,8 +21,8 @@ public class World extends BaseUUIDEntity {
   @Column(name = "description")
   private String description;
 
-  @OneToOne
-  @JoinColumn(name = "game_session_id", referencedColumnName = "id")
-  private GameSession gameSession;
+  @ManyToOne
+  @JoinColumn(name = "lobby_id", referencedColumnName = "id")
+  private Lobby lobby;
 
 }

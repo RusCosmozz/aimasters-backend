@@ -1,13 +1,13 @@
 package ru.dungeon.aimasters.backend.repositories;
 
 import org.springframework.stereotype.Repository;
-import ru.dungeon.aimasters.backend.domain.entities.GameSession;
+import ru.dungeon.aimasters.backend.domain.entities.Lobby;
 
 /**
  * @author Ermakov KS
  * @since 04.04.2023
  */
 @Repository
-public interface GameSessionRepository extends BaseUUIDRepository<GameSession> {
+public interface LobbyRepository extends BaseUUIDRepository<Lobby> {
 
 }

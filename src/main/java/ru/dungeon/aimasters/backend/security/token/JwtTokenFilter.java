@@ -16,25 +16,17 @@ import java.io.IOException;
 @AllArgsConstructor
 public class JwtTokenFilter extends OncePerRequestFilter {
 
-    private JwtTokenService jwtTokenUtil;
+    private JwtTokenService jwtTokenService;
 
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        String token = resolveToken(request);
-
-        if (token != null && jwtTokenUtil.validateToken(token)) {
-            Authentication auth = jwtTokenUtil.getAuthentication(token);
+        String token = jwtTokenService.resolveToken(request);
+        if (token != null && jwtTokenService.validateToken(token)) {
+            Authentication auth = jwtTokenService.getAuthentication(token);
             SecurityContextHolder.getContext().setAuthentication(auth);
         }
         filterChain.doFilter(request, response);
     }
 
-    private String resolveToken(HttpServletRequest request) {
-        String bearerToken = request.getHeader("Authorization");
-        if (bearerToken != null && bearerToken.startsWith("Bearer ")) {
-            return bearerToken.substring(7);
-        }
-        return null;
-    }
 }

@@ -2,12 +2,9 @@ package ru.dungeon.aimasters.backend.mappers;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import ru.dungeon.aimasters.backend.domain.entities.GameSession;
 import ru.dungeon.aimasters.backend.domain.entities.PlayableCharacter;
 import ru.dungeon.aimasters.backend.dtos.character.CharacterRequestDto;
 import ru.dungeon.aimasters.backend.dtos.character.CharacterResponseDto;
-import ru.dungeon.aimasters.backend.dtos.session.GameSessionRequestDto;
-import ru.dungeon.aimasters.backend.dtos.session.GameSessionResponseDto;
 
 /**
  * @author Ermakov KS

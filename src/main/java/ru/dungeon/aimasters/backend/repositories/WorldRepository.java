@@ -12,5 +12,5 @@ import java.util.UUID;
  */
 @Repository
 public interface WorldRepository extends BaseUUIDRepository<World> {
-    Optional<World> findWorldByGameSessionId(UUID gameId);
+    Optional<World> findWorldByLobbyId(UUID gameId);
 }
