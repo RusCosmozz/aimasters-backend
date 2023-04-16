@@ -1,4 +1,4 @@
-package ru.dungeon.aimasters.backend.dtos.lobby;
+package ru.dungeon.aimasters.backend.domain.dtos.lobby;
 
 import java.util.List;
 import java.util.UUID;
@@ -8,7 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.dungeon.aimasters.backend.dtos.world.LobbyWorldDto;
+import ru.dungeon.aimasters.backend.domain.dtos.world.LobbyWorldDto;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.*;
 

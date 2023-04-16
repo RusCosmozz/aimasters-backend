@@ -2,8 +2,8 @@ package ru.dungeon.aimasters.backend.services;
 
 import java.util.List;
 import java.util.UUID;
-import ru.dungeon.aimasters.backend.dtos.character.CharacterRequestDto;
-import ru.dungeon.aimasters.backend.dtos.character.CharacterResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterResponseDto;
 
 /**
  * @author Ermakov KS

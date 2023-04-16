@@ -1,4 +1,4 @@
-package ru.dungeon.aimasters.backend.dtos.chat;
+package ru.dungeon.aimasters.backend.domain.dtos.chat;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

@@ -2,8 +2,8 @@ package ru.dungeon.aimasters.backend.services;
 
 import java.util.List;
 import java.util.UUID;
-import ru.dungeon.aimasters.backend.dtos.world.WorldRequestDto;
-import ru.dungeon.aimasters.backend.dtos.world.WorldResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.world.WorldRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.world.WorldResponseDto;
 
 /**
  * @author Ermakov KS

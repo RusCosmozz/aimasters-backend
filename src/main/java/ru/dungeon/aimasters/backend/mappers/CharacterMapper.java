@@ -3,8 +3,8 @@ package ru.dungeon.aimasters.backend.mappers;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import ru.dungeon.aimasters.backend.domain.entities.PlayableCharacter;
-import ru.dungeon.aimasters.backend.dtos.character.CharacterRequestDto;
-import ru.dungeon.aimasters.backend.dtos.character.CharacterResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterResponseDto;
 
 /**
  * @author Ermakov KS

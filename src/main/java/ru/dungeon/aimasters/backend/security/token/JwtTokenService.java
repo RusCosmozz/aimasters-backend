@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import ru.dungeon.aimasters.backend.config.TokenConfig;
-import ru.dungeon.aimasters.backend.dtos.user.UserDetailsWithId;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserDetailsWithId;
 import ru.dungeon.aimasters.backend.exceptions.exceptions.AuthException;
 
 import javax.servlet.http.HttpServletRequest;

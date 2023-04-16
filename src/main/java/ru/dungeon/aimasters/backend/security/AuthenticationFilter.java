@@ -2,15 +2,11 @@ package ru.dungeon.aimasters.backend.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import org.springframework.stereotype.Component;
-import ru.dungeon.aimasters.backend.dtos.user.UserDetailsWithId;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserDetailsWithId;
 import ru.dungeon.aimasters.backend.security.token.JwtTokenService;
 
 import javax.annotation.PostConstruct;

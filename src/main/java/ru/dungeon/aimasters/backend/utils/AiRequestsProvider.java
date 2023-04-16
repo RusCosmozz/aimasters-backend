@@ -4,9 +4,8 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import ru.dungeon.aimasters.backend.dtos.ai.AiRequestDto;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatAction;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatMessageDto;
+import ru.dungeon.aimasters.backend.domain.dtos.ai.AiRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.ChatMessageDto;
 
 /**
  * @author Ermakov KS

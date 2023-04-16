@@ -1,7 +1,5 @@
 package ru.dungeon.aimasters.backend.services.impl;
 
-import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.http.HttpSession;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,11 +7,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.client.WebClient;
 import ru.dungeon.aimasters.backend.chat.Conversation;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatAction;
 import ru.dungeon.aimasters.backend.utils.AiRequestsProvider;
-import ru.dungeon.aimasters.backend.dtos.ai.AiRequestDto;
-import ru.dungeon.aimasters.backend.dtos.ai.AiResponseDto;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatMessageDto;
+import ru.dungeon.aimasters.backend.domain.dtos.ai.AiRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.ai.AiResponseDto;
 import ru.dungeon.aimasters.backend.services.AiService;
 import ru.dungeon.aimasters.backend.utils.ChatMessageBuilder;
 

@@ -6,10 +6,10 @@ import org.mapstruct.Named;
 import org.springframework.util.CollectionUtils;
 import ru.dungeon.aimasters.backend.domain.entities.Lobby;
 import ru.dungeon.aimasters.backend.domain.entities.World;
-import ru.dungeon.aimasters.backend.dtos.lobby.CompactLobbyResponseDto;
-import ru.dungeon.aimasters.backend.dtos.lobby.LobbyRequestDto;
-import ru.dungeon.aimasters.backend.dtos.lobby.LobbyResponseDto;
-import ru.dungeon.aimasters.backend.dtos.world.LobbyWorldDto;
+import ru.dungeon.aimasters.backend.domain.dtos.lobby.CompactLobbyResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.lobby.LobbyRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.lobby.LobbyResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.world.LobbyWorldDto;
 
 import java.util.Collection;
 import java.util.Collections;

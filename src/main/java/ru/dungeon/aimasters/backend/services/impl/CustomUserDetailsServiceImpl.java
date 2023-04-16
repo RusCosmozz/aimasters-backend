@@ -7,13 +7,12 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import ru.dungeon.aimasters.backend.domain.entities.User;
-import ru.dungeon.aimasters.backend.dtos.user.UserDetailsWithId;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserDetailsWithId;
 import ru.dungeon.aimasters.backend.exceptions.exceptions.AuthException;
 import ru.dungeon.aimasters.backend.repositories.UserRepository;
 import ru.dungeon.aimasters.backend.services.CustomUserDetailsService;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @Slf4j
 @Service

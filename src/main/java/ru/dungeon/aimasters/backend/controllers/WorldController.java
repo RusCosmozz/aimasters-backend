@@ -1,19 +1,15 @@
 package ru.dungeon.aimasters.backend.controllers;
 
-import static ru.dungeon.aimasters.backend.utils.json.JsonUtils.fromJson;
-import static ru.dungeon.aimasters.backend.utils.json.JsonUtils.toJson;
-
 import java.util.UUID;
-import javax.servlet.http.HttpSession;
+
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.dungeon.aimasters.backend.dtos.ai.AiResponseDto;
-import ru.dungeon.aimasters.backend.dtos.chat.MessageContent;
-import ru.dungeon.aimasters.backend.dtos.world.WorldRequestDto;
-import ru.dungeon.aimasters.backend.dtos.world.WorldResponseDto;
-import ru.dungeon.aimasters.backend.services.AiService;
+import ru.dungeon.aimasters.backend.domain.dtos.world.WorldRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.world.WorldResponseDto;
 import ru.dungeon.aimasters.backend.services.WorldService;
 
 /**
@@ -24,13 +20,14 @@ import ru.dungeon.aimasters.backend.services.WorldService;
 @RestController
 @RequestMapping("/api/lobbies/{lobbyId}/worlds")
 @AllArgsConstructor
+@Api(tags = "Worlds")
 public class WorldController {
 
   private final WorldService worldService;
-  private final AiService aiService;
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
+  @ApiOperation("Создание мира")
   public WorldResponseDto createWorld(
       @PathVariable UUID lobbyId,
       @RequestBody WorldRequestDto worldRequestDto) {

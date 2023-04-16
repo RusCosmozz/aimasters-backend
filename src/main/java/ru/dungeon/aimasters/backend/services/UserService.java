@@ -1,10 +1,9 @@
 package ru.dungeon.aimasters.backend.services;
 
 import java.util.UUID;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import ru.dungeon.aimasters.backend.domain.entities.User;
-import ru.dungeon.aimasters.backend.dtos.user.UserRequestDto;
-import ru.dungeon.aimasters.backend.dtos.user.UserResponseDto;
+
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserResponseDto;
 
 /**
  * @author Ermakov KS

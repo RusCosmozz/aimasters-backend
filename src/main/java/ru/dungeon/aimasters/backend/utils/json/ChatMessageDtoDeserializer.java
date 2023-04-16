@@ -7,9 +7,9 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatMessageDto;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatRole;
-import ru.dungeon.aimasters.backend.dtos.chat.MessageContent;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.ChatMessageDto;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.ChatRole;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.MessageContent;
 
 /**
  * @author Ermakov KS

@@ -1,4 +1,4 @@
-package ru.dungeon.aimasters.backend.dtos.character;
+package ru.dungeon.aimasters.backend.domain.dtos.character;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

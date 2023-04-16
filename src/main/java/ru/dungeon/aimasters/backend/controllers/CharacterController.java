@@ -4,8 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.dungeon.aimasters.backend.dtos.character.CharacterRequestDto;
-import ru.dungeon.aimasters.backend.dtos.character.CharacterResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterResponseDto;
 import ru.dungeon.aimasters.backend.services.CharacterService;
 
 import java.util.List;

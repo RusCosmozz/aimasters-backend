@@ -1,9 +1,5 @@
-package ru.dungeon.aimasters.backend.dtos.user;
+package ru.dungeon.aimasters.backend.domain.dtos.user;
 
-import java.util.UUID;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,9 +13,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserResponseDto {
+public class UserRequestDto {
 
-  private UUID id;
   private String username;
+
   private String email;
+
+  private String password;
 }

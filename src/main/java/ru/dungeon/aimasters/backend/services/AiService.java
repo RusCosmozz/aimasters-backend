@@ -1,8 +1,8 @@
 package ru.dungeon.aimasters.backend.services;
 
 import javax.servlet.http.HttpSession;
-import ru.dungeon.aimasters.backend.domain.entities.World;
-import ru.dungeon.aimasters.backend.dtos.ai.AiResponseDto;
+
+import ru.dungeon.aimasters.backend.domain.dtos.ai.AiResponseDto;
 
 /**
  * @author Ermakov KS

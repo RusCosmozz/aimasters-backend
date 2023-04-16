@@ -1,4 +1,6 @@
-package ru.dungeon.aimasters.backend.dtos.lobby;
+package ru.dungeon.aimasters.backend.domain.dtos.user;
+
+import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,10 +12,12 @@ import lombok.NoArgsConstructor;
  * @since 04.04.2023
  */
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class LobbyRequestDto {
+@Builder
+public class UserResponseDto {
 
-  private String name;
+  private UUID id;
+  private String username;
+  private String email;
 }

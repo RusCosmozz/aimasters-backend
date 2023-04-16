@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import java.io.IOException;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatMessageDto;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.ChatMessageDto;
 
 /**
  * Кастомный сериализатор для ChatMessageDto

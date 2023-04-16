@@ -1,11 +1,11 @@
-package ru.dungeon.aimasters.backend.dtos.ai;
+package ru.dungeon.aimasters.backend.domain.dtos.ai;
 
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatAnswer;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.ChatAnswer;
 
 /**
  * Дто для ответа от нейросети

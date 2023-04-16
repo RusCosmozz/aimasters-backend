@@ -1,6 +1,5 @@
-package ru.dungeon.aimasters.backend.dtos.world;
+package ru.dungeon.aimasters.backend.domain.dtos.lobby;
 
-import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -14,10 +13,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class WorldResponseDto {
+public class LobbyRequestDto {
 
-  private UUID id;
-  private String worldName;
-  private String description;
-  private String lobbyId;
+  private String name;
 }

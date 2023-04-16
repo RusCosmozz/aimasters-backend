@@ -31,6 +31,7 @@ ext {
     validation = '2.0.1.Final'
     jjwt = '0.11.5'
     auth0 = '4.2.1'
+    swagger = '3.0.0'
 }
 
 dependencies {
@@ -40,27 +41,25 @@ dependencies {
     implementation "org.springframework.boot:spring-boot-starter-validation:${springBootStarter}"
     implementation "org.springframework.boot:spring-boot-starter-web:${springBootStarter}"
     implementation "org.springframework.boot:spring-boot-starter-oauth2-resource-server:${springBootStarter}"
-    // token
+    // ------------- Token -----------------
     implementation "io.jsonwebtoken:jjwt-impl:${jjwt}"
     implementation "com.auth0:java-jwt:${auth0}"
-
-
+    // ------------- Swagger -----------------
+    implementation "io.springfox:springfox-swagger2:${swagger}"
+    implementation "io.springfox:springfox-swagger-ui:${swagger}"
+    implementation "io.springfox:springfox-boot-starter:${swagger}"
     //  ------------- DB -----------------
     implementation "org.springframework.boot:spring-boot-starter-webflux:${springBootStarter}"
     implementation "org.postgresql:postgresql:${postgresql}"
     implementation "org.liquibase:liquibase-core:${liquibase}"
-
     //  ------------- Lombok -----------------
     compileOnly "org.projectlombok:lombok:${lombok}"
     annotationProcessor "org.projectlombok:lombok:${lombok}"
-
     //  ------------- Mapstruct -----------------
     implementation "org.mapstruct:mapstruct:${mapstruct}"
     annotationProcessor "org.mapstruct:mapstruct-processor:${mapstruct}"
-
     //  ------------- Validation -----------------
     implementation "javax.validation:validation-api:${validation}"
-
     //  ------------- Tests -----------------
     testImplementation "org.springframework.boot:spring-boot-starter-test:${springBootStarterTest}"
     testImplementation "org.projectlombok:lombok:${lombok}"

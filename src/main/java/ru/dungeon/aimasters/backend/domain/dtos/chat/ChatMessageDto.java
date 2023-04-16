@@ -1,4 +1,4 @@
-package ru.dungeon.aimasters.backend.dtos.chat;
+package ru.dungeon.aimasters.backend.domain.dtos.chat;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;

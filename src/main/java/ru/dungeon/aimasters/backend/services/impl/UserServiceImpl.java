@@ -1,17 +1,12 @@
 package ru.dungeon.aimasters.backend.services.impl;
 
-import java.util.Collections;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.dungeon.aimasters.backend.domain.entities.User;
-import ru.dungeon.aimasters.backend.dtos.user.UserRequestDto;
-import ru.dungeon.aimasters.backend.dtos.user.UserResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserResponseDto;
 import ru.dungeon.aimasters.backend.exceptions.exceptions.EntityAlreadyExistsException;
 import ru.dungeon.aimasters.backend.exceptions.exceptions.EntityNotFoundException;
 import ru.dungeon.aimasters.backend.mappers.UserMapper;

@@ -1,13 +1,12 @@
-package ru.dungeon.aimasters.backend.dtos.ai;
+package ru.dungeon.aimasters.backend.domain.dtos.ai;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.dungeon.aimasters.backend.dtos.chat.ChatMessageDto;
+import ru.dungeon.aimasters.backend.domain.dtos.chat.ChatMessageDto;
 
 /**
  * @author Ermakov KS

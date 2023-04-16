@@ -4,8 +4,8 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import ru.dungeon.aimasters.backend.domain.entities.User;
-import ru.dungeon.aimasters.backend.dtos.user.UserRequestDto;
-import ru.dungeon.aimasters.backend.dtos.user.UserResponseDto;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserRequestDto;
+import ru.dungeon.aimasters.backend.domain.dtos.user.UserResponseDto;
 
 /**
  * @author Ermakov KS
