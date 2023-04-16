@@ -1,4 +1,4 @@
-package ru.dungeon.aimasters.backend.dtos.session;
+package ru.dungeon.aimasters.backend.dtos.lobby;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

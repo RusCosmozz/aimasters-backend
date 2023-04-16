@@ -4,6 +4,9 @@ import javax.persistence.*;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import java.util.Set;
 
 /**
  * todo javadoc когда будет ясны модели
@@ -11,10 +14,14 @@ import lombok.EqualsAndHashCode;
  * @author Ermakov KS
  * @since 04.04.2023
  */
+
 @Data
 @Entity
 @Table(name = "lobbies")
 @EqualsAndHashCode(callSuper = true)
+@NamedEntityGraph(
+        name = "lobby-with-worlds",
+        attributeNodes = {@NamedAttributeNode("worlds")})
 public class Lobby extends BaseUUIDEntity {
 
   @OneToOne
@@ -26,4 +33,10 @@ public class Lobby extends BaseUUIDEntity {
 
   @Column(name = "status", nullable = false)
   private String status;
+
+  @EqualsAndHashCode.Exclude
+  @ToString.Exclude
+  @OneToMany(mappedBy = "lobby")
+  private Set<World> worlds;
 }
+

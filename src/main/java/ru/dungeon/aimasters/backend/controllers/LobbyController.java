@@ -7,9 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-import ru.dungeon.aimasters.backend.dtos.session.CompactLobbyResponseDto;
-import ru.dungeon.aimasters.backend.dtos.session.LobbyRequestDto;
-import ru.dungeon.aimasters.backend.dtos.session.LobbyResponseDto;
+import ru.dungeon.aimasters.backend.dtos.lobby.CompactLobbyResponseDto;
+import ru.dungeon.aimasters.backend.dtos.lobby.LobbyRequestDto;
+import ru.dungeon.aimasters.backend.dtos.lobby.LobbyResponseDto;
 import ru.dungeon.aimasters.backend.security.token.JwtTokenService;
 import ru.dungeon.aimasters.backend.services.LobbyService;
 

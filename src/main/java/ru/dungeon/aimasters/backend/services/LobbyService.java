@@ -3,9 +3,9 @@ package ru.dungeon.aimasters.backend.services;
 import java.util.List;
 import java.util.UUID;
 
-import ru.dungeon.aimasters.backend.dtos.session.CompactLobbyResponseDto;
-import ru.dungeon.aimasters.backend.dtos.session.LobbyRequestDto;
-import ru.dungeon.aimasters.backend.dtos.session.LobbyResponseDto;
+import ru.dungeon.aimasters.backend.dtos.lobby.CompactLobbyResponseDto;
+import ru.dungeon.aimasters.backend.dtos.lobby.LobbyRequestDto;
+import ru.dungeon.aimasters.backend.dtos.lobby.LobbyResponseDto;
 
 /**
  * @author Ermakov KS

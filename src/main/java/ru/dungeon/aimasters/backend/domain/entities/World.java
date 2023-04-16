@@ -14,15 +14,11 @@ import lombok.EqualsAndHashCode;
 @Table(name = "worlds")
 @EqualsAndHashCode(callSuper = true)
 public class World extends BaseUUIDEntity {
-
   @Column(name = "world_name")
   private String worldName;
-
   @Column(name = "description")
   private String description;
-
   @ManyToOne
   @JoinColumn(name = "lobby_id", referencedColumnName = "id")
   private Lobby lobby;
-
 }

@@ -1,7 +1,11 @@
 package ru.dungeon.aimasters.backend.repositories;
 
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.stereotype.Repository;
 import ru.dungeon.aimasters.backend.domain.entities.Lobby;
+
+import java.util.Optional;
+import java.util.UUID;
 
 /**
  * @author Ermakov KS
@@ -9,5 +13,6 @@ import ru.dungeon.aimasters.backend.domain.entities.Lobby;
  */
 @Repository
 public interface LobbyRepository extends BaseUUIDRepository<Lobby> {
-
+    @EntityGraph("lobby-with-worlds")
+    Optional<Lobby> findWithWorldsById(UUID lobbyId);
 }

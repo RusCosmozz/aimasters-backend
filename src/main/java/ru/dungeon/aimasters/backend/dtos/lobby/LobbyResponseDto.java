@@ -1,18 +1,14 @@
-package ru.dungeon.aimasters.backend.dtos.session;
+package ru.dungeon.aimasters.backend.dtos.lobby;
 
 import java.util.List;
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.dungeon.aimasters.backend.domain.entities.World;
-import ru.dungeon.aimasters.backend.dtos.world.WorldResponseDto;
+import ru.dungeon.aimasters.backend.dtos.world.LobbyWorldDto;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.*;
 
@@ -31,5 +27,5 @@ public class LobbyResponseDto {
   private UUID hostId;
   private String status;
   private String name;
-  private List<WorldResponseDto> worlds;
+  private List<LobbyWorldDto> worlds;
 }
