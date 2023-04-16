@@ -1,5 +1,6 @@
 package ru.dungeon.aimasters.backend.services;
 
+import java.util.List;
 import java.util.UUID;
 import ru.dungeon.aimasters.backend.dtos.world.WorldRequestDto;
 import ru.dungeon.aimasters.backend.dtos.world.WorldResponseDto;
@@ -13,5 +14,5 @@ public interface WorldService {
   WorldResponseDto createWorld(WorldRequestDto worldRequestDto, UUID gameId);
 
   WorldResponseDto findWorldById(UUID id);
-  WorldResponseDto findWorldByGameId(UUID id);
+  List<WorldResponseDto> findWorldsByGameId(UUID id);
 }

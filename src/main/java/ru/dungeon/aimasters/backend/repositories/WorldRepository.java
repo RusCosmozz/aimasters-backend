@@ -3,6 +3,7 @@ package ru.dungeon.aimasters.backend.repositories;
 import org.springframework.stereotype.Repository;
 import ru.dungeon.aimasters.backend.domain.entities.World;
 
+import java.util.Collection;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -13,4 +14,5 @@ import java.util.UUID;
 @Repository
 public interface WorldRepository extends BaseUUIDRepository<World> {
     Optional<World> findWorldByLobbyId(UUID gameId);
+    Collection<World> findAllByLobbyId(UUID lobbyId);
 }

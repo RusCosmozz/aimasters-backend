@@ -1,6 +1,9 @@
 package ru.dungeon.aimasters.backend.services.impl;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
+
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,36 +26,37 @@ import ru.dungeon.aimasters.backend.services.WorldService;
 @Transactional(readOnly = true)
 public class WorldServiceImpl implements WorldService {
 
-  private final WorldRepository worldRepository;
-  private final LobbyRepository lobbyRepository;
-  private final WorldMapper worldMapper;
+    private final WorldRepository worldRepository;
+    private final LobbyRepository lobbyRepository;
+    private final WorldMapper worldMapper;
 
-  @Override
-  @Transactional
-  public WorldResponseDto createWorld(WorldRequestDto worldRequestDto, UUID gameId) {
-    Lobby lobby = getGameIfExists(gameId);
-    World world = worldMapper.toWorldEntity(worldRequestDto);
-    world.setLobby(lobby);
-    World savedWorld = worldRepository.save(world);
-    return worldMapper.toWorldDto(savedWorld);
-  }
+    @Override
+    @Transactional
+    public WorldResponseDto createWorld(WorldRequestDto worldRequestDto, UUID gameId) {
+        Lobby lobby = getLobbyIfExists(gameId);
+        World world = worldMapper.toWorldEntity(worldRequestDto);
+        world.setLobby(lobby);
+        World savedWorld = worldRepository.save(world);
+        return worldMapper.toWorldDto(savedWorld);
+    }
 
-  @Override
-  public WorldResponseDto findWorldById(UUID id) {
-    World world = worldRepository.findById(id)
-                                 .orElseThrow(() -> new EntityNotFoundException("World not found with ID: " + id));
-    return worldMapper.toWorldDto(world);
-  }
+    @Override
+    public WorldResponseDto findWorldById(UUID id) {
+        return null;
+    }
 
-  @Override
-  public WorldResponseDto findWorldByGameId(UUID id) {
-    World world = worldRepository.findWorldByLobbyId(id)
-            .orElseThrow(() -> new EntityNotFoundException("World not found with ID: " + id));
-    return worldMapper.toWorldDto(world);
-  }
+    @Override
+    public List<WorldResponseDto> findWorldsByGameId(UUID lobbyId) {
+        return worldRepository.findAllByLobbyId(lobbyId)
+                .stream()
+                .map(worldMapper::toWorldDto)
+                .collect(Collectors.toList());
+    }
 
-  private Lobby getGameIfExists(UUID gameId) {
-    return lobbyRepository.findById(gameId)
-                                .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));
-  }
+
+    private Lobby getLobbyIfExists(UUID gameId) {
+        return lobbyRepository.findById(gameId)
+                .orElseThrow(() -> new EntityNotFoundException("Game not found with ID: " + gameId));
+    }
+
 }

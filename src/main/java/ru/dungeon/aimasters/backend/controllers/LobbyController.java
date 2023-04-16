@@ -41,4 +41,9 @@ public class LobbyController {
     public List<CompactLobbyResponseDto> getAllLobbies() {
         return lobbyService.getAllLobbies();
     }
+
+    @GetMapping("/{lobbyId}")
+    public LobbyResponseDto getLobbyById(@PathVariable UUID lobbyId) {
+        return lobbyService.getLobbyById(lobbyId);
+    }
 }

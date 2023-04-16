@@ -22,7 +22,7 @@ import ru.dungeon.aimasters.backend.services.WorldService;
  */
 @Slf4j
 @RestController
-@RequestMapping("/api/game-sessions/{gameId}/worlds")
+@RequestMapping("/api/lobbies/{lobbyId}/worlds")
 @AllArgsConstructor
 public class WorldController {
 
@@ -32,25 +32,10 @@ public class WorldController {
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public WorldResponseDto createWorld(
-      @PathVariable UUID gameId,
+      @PathVariable UUID lobbyId,
       @RequestBody WorldRequestDto worldRequestDto) {
 
-    log.info("{}",worldRequestDto);
-//    log.info("Запрос на генерацию нового мира");
-//    AiResponseDto aiResponseDto = aiService.generateWorld(httpSession);
-//    MessageContent messageContent = aiResponseDto.getChoices().get(0).getMessageContent();
-//    log.info("{}", toJson(messageContent));
-//    WorldRequestDto worldRequestDto = fromJson(messageContent.getMessage(), WorldRequestDto.class);
-    return worldService.createWorld(worldRequestDto, gameId);
+    return worldService.createWorld(worldRequestDto, lobbyId);
   }
 
-  @GetMapping("/{worldId}")
-  public WorldResponseDto getWorldById(@PathVariable UUID gameId, @PathVariable UUID worldId) {
-    return worldService.findWorldById(worldId);
-  }
-
-  @GetMapping
-  public WorldResponseDto getWorldByGameId(@PathVariable UUID gameId) {
-    return worldService.findWorldByGameId(gameId);
-  }
 }

@@ -19,6 +19,7 @@ public interface LobbyMapper {
     Lobby toLobbyEntity(LobbyRequestDto lobbyRequestDto);
 
     @Mapping(target = "hostId", source = "host.id")
+    @Mapping(target = "worlds", ignore = true)
     LobbyResponseDto toLobbyResponseDto(Lobby lobby);
 
     CompactLobbyResponseDto toCompactLobbyResponseDto(Lobby lobby);

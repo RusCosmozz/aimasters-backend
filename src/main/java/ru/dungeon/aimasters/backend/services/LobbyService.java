@@ -18,4 +18,6 @@ public interface LobbyService {
       UUID hostId);
 
   List<CompactLobbyResponseDto> getAllLobbies();
+
+  LobbyResponseDto getLobbyById(UUID lobbyId);
 }
