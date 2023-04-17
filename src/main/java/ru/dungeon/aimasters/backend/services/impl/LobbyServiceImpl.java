@@ -17,6 +17,7 @@ import ru.dungeon.aimasters.backend.exceptions.exceptions.EntityNotFoundExceptio
 import ru.dungeon.aimasters.backend.mappers.LobbyMapper;
 import ru.dungeon.aimasters.backend.repositories.LobbyRepository;
 import ru.dungeon.aimasters.backend.repositories.UserRepository;
+import ru.dungeon.aimasters.backend.services.CommonService;
 import ru.dungeon.aimasters.backend.services.LobbyService;
 import ru.dungeon.aimasters.backend.services.WorldService;
 
@@ -30,19 +31,20 @@ import ru.dungeon.aimasters.backend.services.WorldService;
 @Transactional(readOnly = true)
 public class LobbyServiceImpl implements LobbyService {
 
-    private UserRepository userRepository;
+    private CommonService commonService;
     private LobbyRepository lobbyRepository;
     private LobbyMapper lobbyMapper;
-
-    private WorldService worldService;
 
     @Override
     @Transactional
     public LobbyResponseDto createLobby(LobbyRequestDto lobbyRequestDto, UUID hostId) {
-        User host = getHostIfExists(hostId);
+        log.info("Сохранение лобби");
+        User host = commonService.getUsersByIdIfExists(hostId);
+        log.info("хост {} найден",hostId);
         Lobby lobbyEntity = lobbyMapper.toLobbyEntity(lobbyRequestDto);
         lobbyEntity.setHost(host);
         Lobby savedLobby = lobbyRepository.save(lobbyEntity);
+        log.info("лобби {} сохранено",savedLobby.getId());
         return lobbyMapper.toLobbyResponseDto(savedLobby);
     }
 
@@ -50,19 +52,16 @@ public class LobbyServiceImpl implements LobbyService {
     public LobbyResponseDto getLobbyById(UUID lobbyId) {
         Lobby lobby = lobbyRepository.findWithWorldsById(lobbyId)
                 .orElseThrow(() -> new EntityNotFoundException("Lobby not found with ID: " + lobbyId));
-        log.info("\n Лобби {} найдено \n количество миров {}", lobbyId, lobby.getWorlds().size());
+        log.info("Лобби {} найдено \n количество миров {}", lobbyId, lobby.getWorlds().size());
         return lobbyMapper.toLobbyResponseDto(lobby);
     }
 
     @Override
     public List<CompactLobbyResponseDto> getAllLobbies() {
         List<Lobby> lobbies = lobbyRepository.findAll();
-        return lobbies.stream().map(lobbyMapper::toCompactLobbyResponseDto).collect(Collectors.toList());
-    }
-
-    private User getHostIfExists(UUID userId) {
-        return userRepository.findById(userId)
-                .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + userId));
+        return lobbies.stream()
+                .map(lobbyMapper::toCompactLobbyResponseDto)
+                .collect(Collectors.toList());
     }
 
 

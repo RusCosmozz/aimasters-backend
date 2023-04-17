@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import ru.dungeon.aimasters.backend.domain.dtos.world.WorldDetailsResponseDto;
 import ru.dungeon.aimasters.backend.domain.dtos.world.WorldRequestDto;
 import ru.dungeon.aimasters.backend.domain.dtos.world.WorldResponseDto;
 import ru.dungeon.aimasters.backend.services.WorldService;
@@ -23,16 +24,25 @@ import ru.dungeon.aimasters.backend.services.WorldService;
 @Api(tags = "Worlds")
 public class WorldController {
 
-  private final WorldService worldService;
+    private final WorldService worldService;
 
-  @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
-  @ApiOperation("Создание мира")
-  public WorldResponseDto createWorld(
-      @PathVariable UUID lobbyId,
-      @RequestBody WorldRequestDto worldRequestDto) {
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Создание мира")
+    public WorldResponseDto createWorld(
+            @RequestBody WorldRequestDto worldRequestDto,
+            @PathVariable UUID lobbyId) {
 
-    return worldService.createWorld(worldRequestDto, lobbyId);
-  }
+        return worldService.createWorld(worldRequestDto, lobbyId);
+    }
+
+    @GetMapping("/{worldId}")
+    @ApiOperation("Получение информации о мире (персонажи и истории)")
+    public WorldDetailsResponseDto getWorldDetails(
+            @PathVariable UUID lobbyId,
+            @PathVariable UUID worldId) {
+
+        return worldService.getWorldDetails(lobbyId, worldId);
+    }
 
 }

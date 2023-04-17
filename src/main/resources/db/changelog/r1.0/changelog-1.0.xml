@@ -1,16 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.4.xsd">
 
-  <changeSet id="1" author="Ermakov KS">
-    <sqlFile path="01_create_users.sql" relativeToChangelogFile="true"/>
-  </changeSet>
-  <changeSet id="2" author="Ermakov KS">
-    <sqlFile path="02_create_lobbies.sql" relativeToChangelogFile="true"/>
-  </changeSet>
-  <changeSet id="3" author="Ermakov KS">
-    <sqlFile path="03_create_worlds.sql" relativeToChangelogFile="true"/>
-  </changeSet>
+    <changeSet id="1" author="Ermakov KS">
+        <sqlFile path="01_create_users.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="2" author="Ermakov KS">
+        <sqlFile path="02_create_lobbies.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="3" author="Ermakov KS">
+        <sqlFile path="03_create_worlds.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="4" author="Ermakov KS">
+        <sqlFile path="04_create_character.sql" relativeToChangelogFile="true"/>
+    </changeSet>
+    <changeSet id="5" author="Ermakov KS">
+        <sqlFile path="05_create_story.sql" relativeToChangelogFile="true"/>
+    </changeSet>
 </databaseChangeLog>

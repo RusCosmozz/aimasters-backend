@@ -1,11 +1,14 @@
 package ru.dungeon.aimasters.backend.controllers;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterRequestDto;
 import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterResponseDto;
+import ru.dungeon.aimasters.backend.security.token.JwtTokenService;
 import ru.dungeon.aimasters.backend.services.CharacterService;
 
 import java.util.List;
@@ -17,33 +20,23 @@ import java.util.UUID;
  */
 @Slf4j
 @RestController
-//todo /users/{userId}
 @RequestMapping("/api/worlds/{worldId}/characters")
 @AllArgsConstructor
+@Api(tags = "Characters")
 public class CharacterController {
 
-  private final CharacterService characterService;
+    private final CharacterService characterService;
 
-  @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
-  public CharacterResponseDto createPlayerCharacter(
-      @PathVariable UUID worldId,
-      @RequestBody CharacterRequestDto characterRequestDto) {
+    private final JwtTokenService jwtTokenService;
 
-    log.info("{}",characterRequestDto);
-/*    log.info("Запрос на генерацию нового персонажа");
-    AiResponseDto aiResponseDto = aiService.createCharacter(httpSession);
-    MessageContent messageContent = aiResponseDto.getChoices().get(0).getMessageContent();
-    log.info("{}", toJson(messageContent));
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Создание персонажа")
+    public CharacterResponseDto createCharacter(
+            @RequestBody CharacterRequestDto characterRequestDto,
+            @PathVariable UUID worldId) {
 
-    String characterJson = messageContent.getMessage();*/
-    return characterService.savePlayerCharacter(characterRequestDto, UUID.randomUUID(), worldId);
-  }
-  @GetMapping
-  @ResponseStatus(HttpStatus.OK)
-  public List<CharacterResponseDto> createPlayerCharacter(
-      @PathVariable UUID worldId) {
+        return characterService.saveCharacter(characterRequestDto,worldId);
+    }
 
-    return characterService.getPlayerCharByWorldId(worldId);
-  }
 }

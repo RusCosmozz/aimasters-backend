@@ -17,7 +17,6 @@ import lombok.NoArgsConstructor;
 public class CharacterResponseDto {
 
   private UUID id;
-  private UUID userId;
   /**
    * идентификатор мира, в котором создан персонаж
    */

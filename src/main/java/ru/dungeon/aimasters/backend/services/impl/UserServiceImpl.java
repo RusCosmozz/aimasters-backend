@@ -11,6 +11,7 @@ import ru.dungeon.aimasters.backend.exceptions.exceptions.EntityAlreadyExistsExc
 import ru.dungeon.aimasters.backend.exceptions.exceptions.EntityNotFoundException;
 import ru.dungeon.aimasters.backend.mappers.UserMapper;
 import ru.dungeon.aimasters.backend.repositories.UserRepository;
+import ru.dungeon.aimasters.backend.services.CommonService;
 import ru.dungeon.aimasters.backend.services.UserService;
 
 /**
@@ -23,6 +24,7 @@ import ru.dungeon.aimasters.backend.services.UserService;
 public class UserServiceImpl implements UserService {
 
   private UserRepository userRepository;
+  private CommonService commonService;
   private UserMapper userMapper;
 
 
@@ -39,14 +41,14 @@ public class UserServiceImpl implements UserService {
 
   @Override
   public UserResponseDto findUserById(UUID userId) {
-    User user = getUserIfExists(userId);
+    User user = commonService.getUsersByIdIfExists(userId);
     return userMapper.toUserResponseDto(user);
   }
 
   @Override
   @Transactional
   public UserResponseDto updateUser(UUID userId, UserRequestDto userUpdateDto) {
-    User user = getUserIfExists(userId);
+    User user = commonService.getUsersByIdIfExists(userId);
     userMapper.updateUser(userUpdateDto, user);
     User updatedUser = userRepository.save(user);
     return userMapper.toUserResponseDto(updatedUser);
@@ -55,12 +57,8 @@ public class UserServiceImpl implements UserService {
   @Override
   @Transactional
   public void deleteUser(UUID userId) {
-    User user = getUserIfExists(userId);
+    User user = commonService.getUsersByIdIfExists(userId);
     userRepository.delete(user);
   }
 
-  private User getUserIfExists(UUID userId) {
-    return userRepository.findById(userId)
-                         .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + userId));
-  }
 }

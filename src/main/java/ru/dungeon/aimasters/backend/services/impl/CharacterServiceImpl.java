@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.dungeon.aimasters.backend.domain.entities.PlayableCharacter;
 import ru.dungeon.aimasters.backend.domain.entities.User;
@@ -17,44 +18,42 @@ import ru.dungeon.aimasters.backend.repositories.CharacterRepository;
 import ru.dungeon.aimasters.backend.repositories.UserRepository;
 import ru.dungeon.aimasters.backend.repositories.WorldRepository;
 import ru.dungeon.aimasters.backend.services.CharacterService;
+import ru.dungeon.aimasters.backend.services.CommonService;
 
 /**
  * @author Ermakov KS
  * @since 06.04.2023
  */
+@Slf4j
 @Service
 @AllArgsConstructor
 public class CharacterServiceImpl implements CharacterService {
 
   private final CharacterRepository characterRepository;
-  private final UserRepository userRepository;
-  private final WorldRepository worldRepository;
+  private final CommonService commonService;
   private final CharacterMapper characterMapper;
 
   @Override
-  public CharacterResponseDto savePlayerCharacter(CharacterRequestDto characterRequestDto, UUID userId, UUID worldId) {
-//    User user = getUserIfExists(userId);
-    World world = getWorldIfExists(worldId);
+  public CharacterResponseDto saveCharacter(CharacterRequestDto characterRequestDto, UUID worldId) {
+    log.info("сохранение персонажа для мира {}",worldId);
+    World world = commonService.getWorldIfExists(worldId);
+    log.info("мир {} найден",worldId);
+
     PlayableCharacter character = characterMapper.toCharacterEntity(characterRequestDto);
-//    character.setUser(user);
     character.setWorld(world);
     PlayableCharacter savedCharacter = characterRepository.save(character);
+    log.info("персонаж {} сохранен успешно",savedCharacter.getId());
+
     return characterMapper.toCharacterDto(savedCharacter);
   }
 
   @Override
-  public List<CharacterResponseDto> getPlayerCharByWorldId(UUID worldId) {
-    getWorldIfExists(worldId);
-    return characterRepository.findAllByWorldId(worldId).stream().map(characterMapper::toCharacterDto).collect(Collectors.toList());
-  }
-
-  private User getUserIfExists(UUID userId) {
-    return userRepository.findById(userId)
-                         .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + userId));
-  }
-
-  private World getWorldIfExists(UUID worldId) {
-    return worldRepository.findById(worldId)
-                          .orElseThrow(() -> new EntityNotFoundException("User not found with ID: " + worldId));
+  public List<CharacterResponseDto> getCharactersByWorldId(UUID worldId) {
+    log.info("Поиск персонажей для мира {}",worldId);
+    List<PlayableCharacter> characters = characterRepository.findAllByWorldId(worldId);
+    log.info("найдено {} персонажей",characters.size());
+    return characters.stream()
+            .map(characterMapper::toCharacterDto)
+            .collect(Collectors.toList());
   }
 }

@@ -47,12 +47,9 @@ public class ControllerLoggingAspect {
   }
   @Around(
           "controller() && (" +
-                  "execution(* *(.., !@org.springframework.web.bind.annotation.RequestBody (*), ..)) && " +
-                  "execution(* *(!@org.springframework.web.bind.annotation.RequestBody (*), ..)) && " +
-                  "execution(* *(.., !@org.springframework.web.bind.annotation.RequestBody (*))) && " +
-                  "execution(* *(!@org.springframework.web.bind.annotation.RequestBody (*))))"
+                  "execution(* *(!@org.springframework.web.bind.annotation.RequestBody (*), ..)))"
   )
-  public Object processWithBody(ProceedingJoinPoint joinPoint) throws Throwable {
+  public Object processWithoutBody(ProceedingJoinPoint joinPoint) throws Throwable {
     ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
     HttpServletRequest request = attributes.getRequest();
 

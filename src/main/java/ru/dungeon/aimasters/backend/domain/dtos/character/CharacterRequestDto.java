@@ -18,12 +18,12 @@ public class CharacterRequestDto {
   private String name;
   private String race;
   /**
-   * если нейросеть придумала расу, отличную от стандартных, то здесь будет описание
+   * описание расы
    */
   private String raceOverview;
   private String className;
   /**
-   * если нейросеть придумала класс, отличный от стандартных, то здесь будет описание
+   * описание класса
    */
   private String classOverview;
   private String gender;

@@ -27,7 +27,6 @@ import ru.dungeon.aimasters.backend.services.LobbyService;
 public class LobbyController {
 
     private final LobbyService lobbyService;
-
     private final JwtTokenService jwtTokenService;
 
     @PostMapping

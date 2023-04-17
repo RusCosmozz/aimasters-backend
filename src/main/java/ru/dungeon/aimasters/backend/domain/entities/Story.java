@@ -1,12 +1,12 @@
 package ru.dungeon.aimasters.backend.domain.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.Set;
+import java.util.UUID;
 
 /**
  * @author Ermakov KS
@@ -17,10 +17,6 @@ import lombok.EqualsAndHashCode;
 @Table(name = "stories")
 @EqualsAndHashCode(callSuper = true)
 public class Story extends BaseUUIDEntity {
-
-  @ManyToOne
-  @JoinColumn(name = "game_session_id", referencedColumnName = "id")
-  private Lobby lobby;
 
   @ManyToOne
   @JoinColumn(name = "world_id", referencedColumnName = "id")
@@ -35,4 +31,12 @@ public class Story extends BaseUUIDEntity {
   @Column(name = "status")
   //todo enum
   private String status;
+
+  @ElementCollection(fetch = FetchType.LAZY)
+  @CollectionTable(
+          name = "character_story",
+          joinColumns = @JoinColumn(name = "story_id")
+  )
+  @Column(name = "character_id")
+  private Set<UUID> characters;
 }

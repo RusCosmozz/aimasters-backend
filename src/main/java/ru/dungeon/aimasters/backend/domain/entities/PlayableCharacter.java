@@ -16,10 +16,6 @@ import lombok.EqualsAndHashCode;
 public class PlayableCharacter extends BaseUUIDEntity {
 
   @ManyToOne
-  @JoinColumn(name = "user_id", referencedColumnName = "id")
-  private User user;
-
-  @ManyToOne
   @JoinColumn(name = "world_id", referencedColumnName = "id")
   private World world;
 

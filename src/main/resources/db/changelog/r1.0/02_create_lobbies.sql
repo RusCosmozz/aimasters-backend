@@ -12,4 +12,4 @@ CREATE TABLE IF NOT EXISTS lobbies
 
 GRANT ALL PRIVILEGES on lobbies to aimasters_app;
 
-CREATE INDEX idx_lobbies_host_id ON lobbies(host_id);
+CREATE INDEX idx_lobbies_host_id ON lobbies (host_id);

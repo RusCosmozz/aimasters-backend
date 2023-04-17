@@ -11,6 +11,6 @@ import ru.dungeon.aimasters.backend.domain.dtos.character.CharacterResponseDto;
  */
 public interface CharacterService {
 
-  CharacterResponseDto savePlayerCharacter(CharacterRequestDto character, UUID userId, UUID worldId);
-  List<CharacterResponseDto> getPlayerCharByWorldId(UUID worldId);
+  CharacterResponseDto saveCharacter(CharacterRequestDto character, UUID worldId);
+  List<CharacterResponseDto> getCharactersByWorldId(UUID worldId);
 }
